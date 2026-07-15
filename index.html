@@ -3,42 +3,61 @@
 
 <head>
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
 
- <title>Servicio que devuelve JSON</title>
+<title>Servicio que devuelve JSON</title>
+
+<style>
+    body{
+        background: black;
+        color: white;
+    }
+
+    footer{
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+    }
+</style>
 
 </head>
 
 <body>
 
- <h1>Servicio que devuelve JSON</h1>
+<h1>Servicio que devuelve JSON</h1>
 
- <p><button id="boton">Recupera datos</button></p>
+<p><button id="boton">Recupera datos</button></p>
 
- <script type="module">
+<footer>
+    © 2026 Montes Ramirez Ubaldo Daniel
+</footer>
 
-  import { consume } from "./libclienteweb/consume.js"
-  import { recibeJson } from "./libclienteweb/recibeJson.js"
-  import { muestraError } from "./libclienteweb/muestraError.js"
+<script type="module">
 
-  boton.addEventListener("click", recibeDatos)
+import { consume } from "./libclienteweb/consume.js"
+import { recibeJson } from "./libclienteweb/recibeJson.js"
+import { muestraError } from "./libclienteweb/muestraError.js"
 
-  async function recibeDatos() {
-   try {
-    const respuesta = await consume(
-     recibeJson("api/devuelve.php"))
-    const json =
-     await respuesta.json()
-    alert(
-     `Mensaje: ${json.mensaje}
+boton.addEventListener("click", recibeDatos)
+
+async function recibeDatos() {
+    try {
+        const respuesta = await consume(
+            recibeJson("api/devuelve.php"))
+        const json = await respuesta.json()
+
+        alert(
+`Mensaje: ${json.mensaje}
 Nombre: ${json.nombre}`)
-   } catch (error) {
-    muestraError(error)
-   }
-  }
 
- </script>
+    } catch (error) {
+        muestraError(error)
+    }
+}
+
+</script>
 
 </body>
 

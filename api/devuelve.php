@@ -3,6 +3,6 @@
 require_once __DIR__ . "/../libservidorphp/devuelveJson.php";
 
 devuelveJson([
- "nombre" => "pp",
- "mensaje" => "Hola.",
+ "nombre" => "Daniel Montes Ramirez",
+ "mensaje" => "Hola, buenas tardes",
 ]);
